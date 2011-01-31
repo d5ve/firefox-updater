@@ -37,6 +37,7 @@ use File::Copy;
 my $ftp_host = 'ftp.mozilla.org';
 my $ftp_dir  = '/pub/mozilla.org/firefox/nightly/latest-trunk/';
 my $nightly_file_suffix = 'linux-i686.tar.bz2';
+my $nightly_file_suffix = 'linux-i686.tar.bz2';
 
 # Local machine details
 my $application_dir = "$ENV{HOME}/Applications/firefox";
@@ -79,7 +80,10 @@ sub get_current_version {
     open my $version_fh, '<', $version_file or die "ERROR: Unable to open version file '$version_file' for reading - $!";
     
     while ( my $line = <$version_fh> ) {
-
+        #BuildID=20110127030333
+        if ( $line =~ m{ \A BuildID=(\d+) \z }xms ) {
+            
+        }
     }
 
     close $version_fh or die "ERROR: Unable to close version file '$version_file' after reading - $!";
