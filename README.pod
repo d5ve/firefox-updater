@@ -4,34 +4,39 @@ Firefox Updater - fetch and install firefox nightly builds
 
 =head2 DESCRIPTION
 
-Firefox Updater is a perl script which fetches Firefox trunk nightly builds and installs them.
+Firefox Updater is a perl script which fetches Firefox trunk nightly builds and
+installs them.
 
-!!This script isn't yet working!!
-
-So far only fetching the latest daily build has been implemented.
+This script checks the currently installed version against the latest one
+hosted at ftp.mozilla.org. If a new version is found, and firefox isn't
+currently running, then the new version is downloaded, unpacked and installed.
+This completely replaces the old version's files, but settings, history, and
+bookmarks are safe, as they're stored outside the application directory.
 
 =head2 SYNOPSIS
 
-    # Check for a new daily build and install.
+    # Check for a new daily build and install if one is found.
     firefox_updater.pl
 
 =head2 VERSION
 
-version 0.01 - 2011-01-27
+version 1.00 - 2011-02-01
 
-    Now hosted on github - http://github.com/d5ve/firefox-updater
+    Now works from end to end.
 
 =head2 TODO
 
 =over 4
 
-=item * Check that firefox isn't currently running.
-
-=item * Check the version number of the nightly is different to that installed.
-
 =item * Install the new version.
 
 =back
+
+=head2 HISTORY
+
+version 0.01 - 2011-01-27
+
+    Now hosted on github - http://github.com/d5ve/firefox-updater
 
 =head2 AUTHOR
 
